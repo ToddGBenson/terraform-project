@@ -5,7 +5,7 @@ resource "aws_subnet" "publicA" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "publicA-TGB"
+    Name = "publicA"
   }
 }
 
@@ -16,7 +16,7 @@ resource "aws_subnet" "publicB" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "publicB-TGB"
+    Name = "publicB"
   }
 }
 
@@ -27,7 +27,7 @@ resource "aws_subnet" "publicC" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "publicC-TGB"
+    Name = "publicC"
   }
 }
 
@@ -37,7 +37,7 @@ resource "aws_subnet" "appA" {
   availability_zone = var.az1a
 
   tags = {
-    Name = "AppA-TGB"
+    Name = "AppA"
   }
 }
 
@@ -47,7 +47,7 @@ resource "aws_subnet" "appB" {
   availability_zone = var.az1b
 
   tags = {
-    Name = "AppB-TGB"
+    Name = "AppB"
   }
 }
 
@@ -57,7 +57,7 @@ resource "aws_subnet" "appC" {
   availability_zone = var.az1c
 
   tags = {
-    Name = "AppC-TGB"
+    Name = "AppC"
   }
 }
 
@@ -67,7 +67,7 @@ resource "aws_subnet" "dbA" {
   availability_zone = var.az1a
 
   tags = {
-    Name = "DbA-TGB"
+    Name = "DbA"
   }
 }
 
@@ -77,7 +77,7 @@ resource "aws_subnet" "dbB" {
   availability_zone = var.az1b
 
   tags = {
-    Name = "DbB-TGB"
+    Name = "DbB"
   }
 }
 
@@ -87,6 +87,6 @@ resource "aws_subnet" "dbC" {
   availability_zone = var.az1c
 
   tags = {
-    Name = "DbC-TGB"
+    Name = "DbC"
   }
 }

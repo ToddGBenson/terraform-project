@@ -1,4 +1,4 @@
-esource "tls_private_key" "tls_connector" {
+resource "tls_private_key" "tls_connector" {
   algorithm = "RSA"
   rsa_bits  = 4096
 }
@@ -30,6 +30,10 @@ resource "aws_instance" "BastionHost" {
   key_name      = aws_key_pair.myKeyPair.key_name
   vpc_security_group_ids = [var.BastionSG]
   subnet_id     = var.publicSubnetA
+  ebs_optimized = true
+  root_block_device {
+    encrypted = true
+  }
 
   tags = {
     Name = "BastionHost"
@@ -42,6 +46,10 @@ resource "aws_instance" "AppServerA" {
   key_name      = aws_key_pair.myKeyPair.key_name
   vpc_security_group_ids = [var.AppSG]
   subnet_id     = var.appA
+  ebs_optimized = true
+  root_block_device {
+    encrypted = true
+  }
 
   tags = {
     Name = "AppServerA"
@@ -54,6 +62,11 @@ resource "aws_instance" "AppServerB" {
   key_name      = aws_key_pair.myKeyPair.key_name
   vpc_security_group_ids = [var.AppSG]
   subnet_id     = var.appB
+  ebs_optimized = true
+  root_block_device {
+    encrypted = true
+  }
+
 
   tags = {
     Name = "AppServerB"
@@ -66,6 +79,11 @@ resource "aws_instance" "AppServerC" {
   key_name      = aws_key_pair.myKeyPair.key_name
   vpc_security_group_ids = [var.AppSG]
   subnet_id     = var.appC
+  ebs_optimized = true
+  root_block_device {
+    encrypted = true
+  }
+
 
   tags = {
     Name = "AppServerC"
