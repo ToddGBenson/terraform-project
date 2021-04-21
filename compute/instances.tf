@@ -31,8 +31,12 @@ resource "aws_instance" "BastionHost" {
   vpc_security_group_ids = [var.BastionSG]
   subnet_id     = var.publicSubnetA
   ebs_optimized = true
+  monitoring = true
   root_block_device {
     encrypted = true
+  }
+  metadata_options {
+    http_tokens = "required"
   }
 
   tags = {
@@ -47,8 +51,12 @@ resource "aws_instance" "AppServerA" {
   vpc_security_group_ids = [var.AppSG]
   subnet_id     = var.appA
   ebs_optimized = true
+  monitoring = true
   root_block_device {
     encrypted = true
+  }
+  metadata_options {
+    http_tokens = "required"
   }
 
   tags = {
@@ -63,8 +71,12 @@ resource "aws_instance" "AppServerB" {
   vpc_security_group_ids = [var.AppSG]
   subnet_id     = var.appB
   ebs_optimized = true
+  monitoring = true
   root_block_device {
     encrypted = true
+  }
+  metadata_options {
+    http_tokens = "required"
   }
 
 
@@ -80,8 +92,12 @@ resource "aws_instance" "AppServerC" {
   vpc_security_group_ids = [var.AppSG]
   subnet_id     = var.appC
   ebs_optimized = true
+  monitoring = true
   root_block_device {
     encrypted = true
+  }
+  metadata_options {
+    http_tokens = "required"
   }
 
 
