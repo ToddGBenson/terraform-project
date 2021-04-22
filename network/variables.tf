@@ -50,15 +50,15 @@ variable "dbC_subnet_cidr_block" {
 
 variable "az1a" {
   type = string
-  default = "us-east-1a"
+  default = "us-east-2a"
 }
 
 variable "az1b" {
   type = string
-  default = "us-east-1b"
+  default = "us-east-2b"
 }
 
 variable "az1c" {
   type = string
-  default = "us-east-1c"
+  default = "us-east-2c"
 }
