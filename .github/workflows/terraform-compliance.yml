@@ -17,9 +17,8 @@ jobs:
         id: checkov
         uses: bridgecrewio/checkov-action@master
         with:
-          directory: compute/
           framework: terraform
           skip_check: CKV_AWS_79,CKV_AWS_135 
           quiet: true
-          soft_fail: false
-          log_level: DEBUG
+          soft_fail: true
+          log_level: ERROR
