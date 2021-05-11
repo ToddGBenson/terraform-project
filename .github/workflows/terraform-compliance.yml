@@ -19,6 +19,7 @@ jobs:
         with:
           directory: compute/
           framework: terraform
+          skip_check: CKV_AWS_79 
           quiet: true
           soft_fail: true
           log_level: DEBUG
