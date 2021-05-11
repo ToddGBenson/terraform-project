@@ -19,6 +19,6 @@ jobs:
         with:
           directory: compute/
           framework: terraform
-          quiet: false
-          soft_fail: false
+          quiet: true
+          soft_fail: true
           log_level: DEBUG
