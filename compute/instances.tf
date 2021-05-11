@@ -79,10 +79,6 @@ resource "aws_instance" "AppServerC" {
   key_name      = aws_key_pair.myKeyPair.key_name
   vpc_security_group_ids = [var.AppSG]
   subnet_id     = var.appC
-  monitoring = true
-  root_block_device {
-    encrypted = true
-  }
 
 
   tags = {
