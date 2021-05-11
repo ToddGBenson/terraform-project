@@ -81,6 +81,7 @@ resource "aws_subnet" "dbB" {
   }
 }
 
+
 resource "aws_subnet" "dbC" {
   vpc_id     = aws_vpc.main.id
   cidr_block = var.dbC_subnet_cidr_block
