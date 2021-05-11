@@ -140,3 +140,36 @@ resource "aws_route_table_association" "privateDbC" {
   subnet_id = aws_subnet.dbC.id
   route_table_id = aws_route_table.PrivateRouteC.id
 }
+
+resource "aws_lb" "Koffee-Luv-ALB" {
+  name               = "Koffee-Luv-ALB"
+  internal           = false
+  load_balancer_type = "application"
+  security_groups    = [var.AlbSG]
+  subnets            = [aws_subnet.publicA.id, aws_subnet.publicB.id, aws_subnet.publicC.id]
+
+  enable_deletion_protection = false
+}
+
+resource "aws_lb_listener" "Koffee-Luv-Listener" {
+  load_balancer_arn = aws_lb.Koffee-Luv-ALB.arn
+  port              = "80"
+  protocol          = "HTTP"
+
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.Koffee-Luv-TG.arn
+  }
+}
+
+resource "aws_lb_target_group" "Koffee-Luv-TG" {
+  name              = "Koffee-Luv-TG"
+  port              = 8080
+  protocol          = "HTTP"
+  vpc_id            = aws_vpc.main.id
+  target_type       = "instance"
+  health_check {
+    protocol        = "HTTP"
+    path            = "/KoffeeLuv"
+  }
+}

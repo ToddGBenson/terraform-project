@@ -51,3 +51,11 @@ output "appB" {
 output "appC" {
   value = aws_subnet.appC.id
 }
+
+output "KoffeeLuvAlbName" {
+  value = aws_lb.Koffee-Luv-ALB.arn
+}
+
+output "KoffeeLuvTGArn" {
+  value = aws_lb_target_group.Koffee-Luv-TG.arn
+}

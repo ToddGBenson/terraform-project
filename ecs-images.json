@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Koffee-Luv-Home-Container",
+    "image": "123456789012.dkr.ecr.us-east-1.amazonaws.com/ecs-koffee-luv-home",
+    "essential": true,
+    "portMappings": [
+      {
+        "containerPort": 8080
+      }
+    ]
+  }
+]
