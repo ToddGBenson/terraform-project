@@ -13,4 +13,5 @@ jobs:
         uses: bridgecrewio/checkov-action@master
         with:
           directory: network/
-          framework: terraform 
+          framework: terraform
+          check: CKV_AWS_130
