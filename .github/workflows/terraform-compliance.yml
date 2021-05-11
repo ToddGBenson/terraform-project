@@ -1,13 +1,16 @@
 name: Terraform Compliance Check
 on:
-  push:
-  workflow_dispatch:
-
+  pull_request:
+    branches:
+      - main
 jobs:
   checkov-job:
     runs-on: ubuntu-latest
     name: checkov-action
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@master
+
       - name: Run Checkov action
         id: checkov
         uses: bridgecrewio/checkov-action@master
