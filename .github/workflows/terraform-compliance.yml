@@ -21,5 +21,5 @@ jobs:
           framework: terraform
           skip_check: CKV_AWS_79,CKV_AWS_135 
           quiet: true
-          soft_fail: true
+          soft_fail: false
           log_level: DEBUG
